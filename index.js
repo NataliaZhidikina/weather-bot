@@ -6,7 +6,7 @@ let openWeatherMapId = "b4a28960ab9dcca3c3e2167a25eca3df";
 
 let bot = new TelegramBot(token, {
     webhook: {
-        port: PORT || 443,
+        port: process.env.PORT || 443,
         host: '0.0.0.0'
     },
     polling: {
@@ -174,4 +174,10 @@ bot.onText(/\/start/, msg => {
             parse_mode: "HTML"
         }
     );
+});
+
+
+
+process.on('uncaughtException', function (err) {
+    console.log('Caught exception: ' + err);
 });
