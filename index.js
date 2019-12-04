@@ -4,7 +4,9 @@ let axios = require("axios");
 let token = "1051224289:AAF7KIxrwIsINHQLk3AavHzdHsrKC_-GTVg";
 let openWeatherMapId = "b4a28960ab9dcca3c3e2167a25eca3df";
 
-let bot = new TelegramBot(token, { polling: true });
+let bot = new TelegramBot(token, { polling: {
+    interval: 1000
+} });
 
 // OpenWeatherMap endpoint for getting weather by city name
 let cityWeatherEndpoint = city =>
